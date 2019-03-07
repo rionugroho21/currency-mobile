@@ -6,8 +6,10 @@ import {Provider} from 'react-redux';
 import rootReducer from './redux/reducers';
 import thunk from 'redux-thunk';
 
+import './assets/vendor/font-awesome/css/font-awesome.min.css';
+import './assets/vendor/themify-icons/css/themify-icons.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './styles/style.scss';
+import './assets/styles/style.scss';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
 import App from './App';
