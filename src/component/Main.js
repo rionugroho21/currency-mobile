@@ -19,7 +19,7 @@ class Main extends Component {
                     <List {...this.props} />
                     <Route exact path="/" render={() => (
                         <div className="content__add add">
-                            <Link className="add__info" to={`/Add`}>(-) Add More Currencies</Link>
+                            <Link className="add__info" to={`/Add`}><i class="fa fa-plus"></i> Add More Currencies</Link>
                         </div>
                     )}/>
                     <Route path="/Add" render={({history}) => (

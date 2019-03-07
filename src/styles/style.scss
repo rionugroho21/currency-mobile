@@ -168,22 +168,24 @@ a:hover{
     &__wrap{
         padding: 12px 7px;
         display: inline-block;
-        width: calc(100% - 30px);
+        width: calc(100% - 40px);
         height: 75px;
         border-right: 1px solid #d7d7d7;
     }
     &__remove{
         position: relative;
         display: inline-block;
-        width: 30px;
+        width: 40px;
         height: 75px;
         vertical-align: top;
         text-align: center;
         background-color: transparent;
         border: none;
-        color: #fff;
 
-        span{
+        i{
+            font-size: 20px;
+            line-height: 20px;
+            color: #fff;
             position: absolute;
             top: 50%;
             left: 50%;

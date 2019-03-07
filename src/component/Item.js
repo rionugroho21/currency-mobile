@@ -18,7 +18,7 @@ function Item(props) {
                 <button onClick = {() => {
                     props.startRemovingDatas(props.index, post.id);
                     props.history.push('/');
-                }}className="box__remove"><span>(-)</span></button>
+                }}className="box__remove"><i class="fa fa-close"></i></button>
             </div>
         </div>
 }
