@@ -22,7 +22,6 @@ export class Add extends React.Component {
         event.preventDefault();
         const country = this.state.country.toUpperCase();
         this.startAddingRates(country);
-        //event.target.elements.country.value = "";
     }
 
     startAddingRates(post) {
@@ -55,7 +54,6 @@ export class Add extends React.Component {
         return <div className="content__add add">
                 <div className="add__wrap">
                     <form onSubmit={this.handleSubmit}>
-                        {/* <input type="text" name="country" className="add__input" value={this.state.country} placeholder="" onChange={this.handleChange}/> */}
                         <select className="add__select" name="country" value={this.state.country} onChange={this.handleChange}>{listItems}</select>
                         <button type="submit" className="add__submit">Submit</button>
                     </form>
