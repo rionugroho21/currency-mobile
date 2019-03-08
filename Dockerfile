@@ -3,10 +3,12 @@ FROM node:latest
 
 #set working directory
 RUN mkdir /usr/src/app
-
 WORKDIR /usr/src/app
 
-#copy all files from current directory to docker
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
 COPY package.json /usr/src/app
 
 # install and cache app dependencies
@@ -14,9 +16,6 @@ RUN npm install
 
 ADD src /usr/src/app/src
 ADD public /usr/src/app/public
-
-# add '/usr/src/app/node_modules/.bin' to $PATH
-# ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 RUN npm build
 
