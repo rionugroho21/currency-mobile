@@ -1,5 +1,5 @@
 import {database} from '../database/config';
-//import axios from 'axios';
+import {startDonwloadCountry} from '../service/service';
 
 export function startLoadingRates(){
     return (dispatch) => {
@@ -53,5 +53,29 @@ export function removePost(index) {
     return {
         type: 'REMOVE_RATES',
         index
+    }
+}
+
+export function startLoadingCountry(){
+    return (dispatch) => {
+        return startDonwloadCountry().then(res => {
+            const country = res.data;
+            let rates = '';
+            let list = [];
+            for(rates in country.rates) {
+                list = list.concat(rates);
+            }
+            dispatch(loadCountry(list));
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+}
+
+export function loadCountry(data) {
+    return {
+        type: 'LOAD_COUNTRY',
+        data
     }
 }

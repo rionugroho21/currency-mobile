@@ -5,10 +5,15 @@ export class Add extends React.Component {
     constructor(){
         super();
         this.state = {
-            country: ''
+            country: '',
+            countryCode: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.startLoadingCountry();
     }
 
     handleChange({target}) {
@@ -21,7 +26,7 @@ export class Add extends React.Component {
         event.preventDefault();
         const country = this.state.country.toUpperCase();
         this.startAddingRates(country);
-        event.target.elements.country.value = "";
+        //event.target.elements.country.value = "";
     }
 
     startAddingRates(post) {
@@ -45,10 +50,17 @@ export class Add extends React.Component {
     }
 
     render(){
+        const listCountry = this.props.rates;
+        const listItems = listCountry.map((index) => 
+            <option key={index} data-value={index} value={index}>
+                {index}
+            </option>
+        );
         return <div className="content__add add">
                 <div className="add__wrap">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" name="country" className="add__input" placeholder="" onChange={this.handleChange}/>
+                        {/* <input type="text" name="country" className="add__input" value={this.state.country} placeholder="" onChange={this.handleChange}/> */}
+                        <select className="add__select" name="country" value={this.state.country} onChange={this.handleChange}>{listItems}</select>
                         <button type="submit" className="add__submit">Submit</button>
                     </form>
                 </div>
