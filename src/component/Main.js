@@ -9,6 +9,7 @@ class Main extends Component {
 
     componentDidMount(){
         this.props.startLoadingRates();
+        this.props.startLoadingCountry();
     }
 
     render() {
